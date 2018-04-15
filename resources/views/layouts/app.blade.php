@@ -46,7 +46,8 @@
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="{{ Storage::disk('public')->url(Auth::user()->avatar) }}" style="width:40px; height: 40px; border-radius:50%; float:left; margin-right:25px;">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
