@@ -28,10 +28,12 @@ class UserController extends Controller
         $user->avatar = $avatar;
         $user->save();
 
-        Storage::disk('public')->delete($oldImage);
+        if(strpos($oldImage, 'default.jpg') ===false ){
+          Storage::disk('public')->delete($oldImage);
+        }
 
         return view('profile', [
-          'user' => Auth::user()
+          'user' => $user
         ]);
       }
     }
